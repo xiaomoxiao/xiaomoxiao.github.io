@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>Excel使用</title>
-      <link href="2021/02/16/excel%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-      <url>2021/02/16/excel%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="创建开会时的名片"><a href="#创建开会时的名片" class="headerlink" title="创建开会时的名片"></a>创建开会时的名片</h2><center><font color="#00Ec00">如果要打印开会时的姓名牌 </font></center>  <center>例如</center>  <p><a href="https://sm.ms/image/rmIwhs7Hz6FtlA9" target="_blank"><img src="https://i.loli.net/2021/02/16/rmIwhs7Hz6FtlA9.jpg" style="float:middle" height="200" width="200" alt="姓名牌"></a></p><center>首先，在excel中存在着一列人物的名字，将其复制到右边的列  然后选择两列设置列宽为50，选中第一行，按Ctrl+Shift+ ↓ 把鼠标移动到行号，设置行高为406，选中左列单元格设置格式设置左列格式对其方向为-90°，右列为90°，选中两列，这只字号为100，对其方式设置为居中对齐，再右键设置单元格格式，设置竖向边框，三个边框均设置，或者只设置两边的，再设置打印格式，选择横向打印，A4,设置页边距上：4，做：4.5，右：3，下：3。</center><center>你成功了哦</center>  ]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="2021/02/15/hello-world/"/>
       <url>2021/02/15/hello-world/</url>
