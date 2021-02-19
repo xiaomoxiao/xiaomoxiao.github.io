@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2021/02/16/world%E6%8A%80%E5%B7%A7/</loc>
+    <loc>http://yoursite.com/2021/02/16/excel%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
     
-    <lastmod>2021-02-16</lastmod>
+    <lastmod>2021-02-19</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2021/02/16/excel%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
+    <loc>http://yoursite.com/2021/02/16/world%E6%8A%80%E5%B7%A7/</loc>
     
     <lastmod>2021-02-16</lastmod>
     
@@ -25,7 +25,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2021-02-16</lastmod>
+    <lastmod>2021-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,14 +33,14 @@
   
   <url>
     <loc>http://yoursite.com/tags/Excel/</loc>
-    <lastmod>2021-02-16</lastmod>
+    <lastmod>2021-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/word/</loc>
-    <lastmod>2021-02-16</lastmod>
+    <lastmod>2021-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -49,7 +49,7 @@
   
   <url>
     <loc>http://yoursite.com/categories/Excel/</loc>
-    <lastmod>2021-02-16</lastmod>
+    <lastmod>2021-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
