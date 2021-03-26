@@ -192,7 +192,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      32 字
+      589 字
     </span>
   
 
@@ -202,7 +202,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -236,7 +236,41 @@
             
             <div class="markdown-body">
               <h2 id="关于ros的rosdeb-init-或者rosdeb-update不成功的解决办法"><a href="#关于ros的rosdeb-init-或者rosdeb-update不成功的解决办法" class="headerlink" title="关于ros的rosdeb init 或者rosdeb update不成功的解决办法"></a>关于ros的rosdeb init 或者rosdeb update不成功的解决办法</h2><ol>
-<li>首先进入<a href="https://github.com/ros/rosdistro" title="" target="">这里</a>去把这个包下载下来。</li>
+<li><p>首先进入<a href="https://github.com/ros/rosdistro" title="" target="">这里</a>去把这个包下载下来。</p>
+</li>
+<li><p>修改这个包中rosdep/source.list.d/下的文件20-default.list，<br>将这个文件中指向raw.githubusercontent.com的url地址<br>全部修改为指向本地文件的地址，也就是该下载好的包的地址<br>(```)</p>
+<h1 id="os-specific-listings-first"><a href="#os-specific-listings-first" class="headerlink" title="os-specific listings first"></a>os-specific listings first</h1><p> yaml file:///home/xxx/rosdistro/rosdep/osx-homebrew.yaml osx</p>
+<h1 id="generic"><a href="#generic" class="headerlink" title="generic"></a>generic</h1><p> yaml file:///home/xxx/rosdistro/rosdep/base.yaml<br> yaml file:///home/xxx/rosdistro/rosdep/python.yaml<br> yaml file:///home/xxx/rosdistro/rosdep/ruby.yaml<br> gbpdistro file:///home/xxx/rosdistro/releases/fuerte.yaml fuerte</p>
+<h1 id="newer-distributions-Groovy-Hydro-…-must-not-be-listed-anymore-they-are-being-fetched-from-the-rosdistro-index-yaml-instead"><a href="#newer-distributions-Groovy-Hydro-…-must-not-be-listed-anymore-they-are-being-fetched-from-the-rosdistro-index-yaml-instead" class="headerlink" title="newer distributions (Groovy, Hydro, …) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead"></a>newer distributions (Groovy, Hydro, …) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead</h1><p>(```)<br><strong><em>注意：</em></strong>在py语言中：url本地文件地址格式是：file://+文件地址，后面更改其他文件中地址的时候也一样。</p>
+</li>
+<li><p>修改/usr/lib/python2.7/dist-packages/rosdep2/main.py中的默认的url的地址，<br> 但是经过代码阅读，该文件中并不存在指向raw.githubusercontent.com的代码。<br> 而且经过对代码的分析，提示报错的代码就在该文件中<br> (```)<br> def command_init(options):<br> try:</p>
+<pre><code> data = download_default_sources_list()
+</code></pre>
+<p> except URLError as e:</p>
+<pre><code> print('ERROR: cannot download default sources list from:\n%s\nWebsite may be down.' % (DEFAULT_SOURCES_LIST_URL))
+ return 4
+</code></pre>
+<p> except DownloadFailure as e:</p>
+<pre><code> print('ERROR: cannot download default sources list from:\n%s\nWebsite may be down.' % (DEFAULT_SOURCES_LIST_URL))
+</code></pre>
+<p> (```)</p>
+<p> 由于其调用了download_default_sources_list()这个函数<br> 而该函数就在/usr/lib/python2.7/dist-packages/rosdep2该文件夹下面的sources_list.py文件里面。<br> 而这个文件里面的代码则进行了访问raw.githubusercontent.com的操作，因此修改该默认url即可。<br> (```)</p>
+<h1 id="default-file-to-download-with-‘init’-command-in-order-to-bootstrap"><a href="#default-file-to-download-with-‘init’-command-in-order-to-bootstrap" class="headerlink" title="default file to download with ‘init’ command in order to bootstrap"></a>default file to download with ‘init’ command in order to bootstrap</h1><h1 id="rosdep"><a href="#rosdep" class="headerlink" title="rosdep"></a>rosdep</h1><p> DEFAULT_SOURCES_LIST_URL = ‘file:///home/xxx/rosdistro/rosdep/sources.list.d/20-default.list’</p>
+<h1 id="seconds-to-wait-before-aborting-download-of-rosdep-data"><a href="#seconds-to-wait-before-aborting-download-of-rosdep-data" class="headerlink" title="seconds to wait before aborting download of rosdep data"></a>seconds to wait before aborting download of rosdep data</h1><p> (```)</p>
+<p> <strong><em>总结</em></strong>：该步实际并不是修改 main.py 文件里面默认url的指向地址，而是修改同文件夹下的sources_list.py文件里面的代码</p>
+</li>
+<li><p>修改以下两个文件里面的代码：<br> (<code>)  /usr/lib/python2.7/dist-packages/rosdep2/rep3.py  /usr/lib/python2.7/dist-packages/rosdistro/__init__.py  (</code>)</p>
+<p> 下面是我分别修改后的样例：</p>
+ <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/usr/</span>lib<span class="hljs-regexp">/python2.7/</span>dist-packages<span class="hljs-regexp">/rosdep2/</span>rep3.py文件：<br><br></code></pre></td></tr></tbody></table></figure>
+<p> (```)</p>
+<h1 id="location-of-targets-file-for-processing-gbpdistro-files"><a href="#location-of-targets-file-for-processing-gbpdistro-files" class="headerlink" title="location of targets file for processing gbpdistro files"></a>location of targets file for processing gbpdistro files</h1><p> REP3_TARGETS_URL = ‘file:///home/xxx/rosdistro/releases/targets.yaml’<br> (```)</p>
+ <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/usr/</span>lib<span class="hljs-regexp">/python2.7/</span>dist-packages<span class="hljs-regexp">/rosdistro/</span>__init__.py的文件：<br><br></code></pre></td></tr></tbody></table></figure>
+<p> (```)</p>
+<h1 id="index-information"><a href="#index-information" class="headerlink" title="index information"></a>index information</h1><p> DEFAULT_INDEX_URL = ‘file:///home/xxx/rosdistro/index-v4.yaml’</p>
+<p> def get_index_url():<br> (```)</p>
+<p> 然后进行sudo rosdep init :</p>
+<p> <strong><em>文章转载<a target="_blank" rel="noopener" href="https://blog.csdn.net/nanianwochengshui/article/details/105702188">https://blog.csdn.net/nanianwochengshui/article/details/105702188</a></em></strong><br> 感谢作者在我怎么都init不过的时候给与了莫大的帮助。</p>
+</li>
 </ol>
 
             </div>
