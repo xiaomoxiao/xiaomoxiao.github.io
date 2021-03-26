@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Excel使用</title>
+    <link href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2021/03/26/ros%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>##关于ros的rosdeb init 或者rosdeb update不成功的解决办法</p><ol><li>首先进入github.com/ros/rosdistro去把这个包下载下来。<a href="" title="" target="">text url [external] [title]</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Ros</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ros</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2021/03/08/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
     <url>/2021/03/08/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/</url>
