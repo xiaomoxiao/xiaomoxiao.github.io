@@ -192,7 +192,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      209 字
     </span>
   
 
@@ -202,7 +202,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -235,7 +235,11 @@
             <h1 style="display: none">Ros listener code</h1>
             
             <div class="markdown-body">
-              
+              <h2 id="listener-代码自己的理解"><a href="#listener-代码自己的理解" class="headerlink" title="listener 代码自己的理解"></a>listener 代码自己的理解</h2><p>首先先贴出官方代码</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python</span><br><span class="hljs-keyword">import</span> rospy<br><span class="hljs-keyword">from</span> std_msgs.msg <span class="hljs-keyword">import</span> String<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">callback</span>(<span class="hljs-params">data</span>):</span><br>    rospy.loginfo(rospy.get_caller_id() + <span class="hljs-string">"I heard %s"</span>, data.data)<br>    <br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">listener</span>():</span><br><br>    <span class="hljs-comment"># In ROS, nodes are uniquely named. If two nodes with the same</span><br>    <span class="hljs-comment"># name are launched, the previous one is kicked off. The</span><br>    <span class="hljs-comment"># anonymous=True flag means that rospy will choose a unique</span><br>    <span class="hljs-comment"># name for our 'listener' node so that multiple listeners can</span><br>    <span class="hljs-comment"># run simultaneously.</span><br>    rospy.init_node(<span class="hljs-string">'listener'</span>, anonymous=<span class="hljs-literal">True</span>)<br><br>    rospy.Subscriber(<span class="hljs-string">"chatter"</span>, String, callback)<br><br>    <span class="hljs-comment"># spin() simply keeps python from exiting until this node is stopped</span><br>    rospy.spin()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    listener()<br></code></pre></td></tr></tbody></table></figure>
+<p>listener 与publish 有很大的相同之处，在这里只介绍一些不同之处</p>
+<p>最大的不同时有一个callback函数，学习过单片机的应该都知道，就类似于单片机的中断，来了信号之后就会进入中断处理函数。<br>rospy.spin ()就可以理解为让程序不结束，感觉和while的循环条件一样。</p>
+
             </div>
             <hr>
             <div>
