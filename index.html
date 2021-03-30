@@ -8,7 +8,11 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <script src="/live2d-widget/autoload.js"></script>
   <link rel="icon" type="image/png" href="/img/favicon.png">
+  
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -289,17 +293,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
+        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">ROS init 解决办法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20listener/">
+        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">
           
           
             
           
-          listener 代码自己的理解首先先贴出官方代码
-1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
+          关于ros的rosdeb init 或者rosdeb update不成功的解决办法
+首先进入这里去把这个包下载下来。
+
+修改这个包中rosdep/source.list.d/下的文件20-default.list，将这个文件中指向raw.githubusercontent.com的url地址全部修改为指向本地文件的地址，也就是该下载好的包的地址
+1234567891011# os-specific
         </a>
       </p>
 
@@ -338,20 +345,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">ROS init 解决办法</a>
+        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">
+        <a href="/2021/03/26/ros%20listener/">
           
           
             
           
-          关于ros的rosdeb init 或者rosdeb update不成功的解决办法
-首先进入这里去把这个包下载下来。
-
-修改这个包中rosdep/source.list.d/下的文件20-default.list，将这个文件中指向raw.githubusercontent.com的url地址全部修改为指向本地文件的地址，也就是该下载好的包的地址
-1234567891011# os-specific
+          listener 代码自己的理解首先先贴出官方代码
+1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
         </a>
       </p>
 
