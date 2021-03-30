@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=&quot;auto&quot;>
 
 
 
@@ -189,20 +189,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">ROS init 解决办法</a>
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
           
           
             
           
-          关于ros的rosdeb init 或者rosdeb update不成功的解决办法
-首先进入这里去把这个包下载下来。
-
-修改这个包中rosdep/source.list.d/下的文件20-default.list，将这个文件中指向raw.githubusercontent.com的url地址全部修改为指向本地文件的地址，也就是该下载好的包的地址
-1234567891011# os-specific
+          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
+1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
         </a>
       </p>
 
@@ -241,17 +238,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
+        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">ROS init 解决办法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
+        <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">
           
           
             
           
-          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
-1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
+          关于ros的rosdeb init 或者rosdeb update不成功的解决办法
+首先进入这里去把这个包下载下来。
+
+修改这个包中rosdep/source.list.d/下的文件20-default.list，将这个文件中指向raw.githubusercontent.com的url地址全部修改为指向本地文件的地址，也就是该下载好的包的地址
+1234567891011# os-specific
         </a>
       </p>
 
@@ -708,5 +708,20 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
