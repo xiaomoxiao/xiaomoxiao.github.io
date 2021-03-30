@@ -189,17 +189,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
+        <a href="/2021/03/30/ros%20py%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E5%8D%A1%E6%AD%BB%E4%B8%8D%E9%80%9A%E8%BF%87/">Ros PY文件执行不通过</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
+        <a href="/2021/03/30/ros%20py%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E5%8D%A1%E6%AD%BB%E4%B8%8D%E9%80%9A%E8%BF%87/">
           
           
             
           
-          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
-1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
+          python文件 rosrun执行不通过在script 文件夹中，在ros终端中始终是卡死，然后提示代码有错误，检查了好多遍没有发现错误原因是因为在python文件的头部加入
+123#!/usr/bin/env python# -*- coding: utf-8 -*-
+这段话是来表明你的问价是一个可以执行的python脚本程序，不然是无法执行的。
+然后再记录一下如何创建自己的msg包首先在你的元
         </a>
       </p>
 
@@ -207,8 +209,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-26 14:55" pubdate>
-              2021-03-26
+            <time datetime="2021-03-30 14:55" pubdate>
+              2021-03-30
             </time>
           </div>
         
@@ -249,6 +251,55 @@
           
           listener 代码自己的理解首先先贴出官方代码
 1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-26 14:55" pubdate>
+              2021-03-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Ros/">Ros</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Ros/">Ros</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
+          
+          
+            
+          
+          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
+1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
         </a>
       </p>
 
