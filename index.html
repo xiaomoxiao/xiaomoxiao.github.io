@@ -247,17 +247,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20listener/">
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
           
           
             
           
-          listener 代码自己的理解首先先贴出官方代码
-1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
+          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
+1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
         </a>
       </p>
 
@@ -296,17 +296,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
+        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
+        <a href="/2021/03/26/ros%20listener/">
           
           
             
           
-          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
-1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
+          listener 代码自己的理解首先先贴出官方代码
+1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
         </a>
       </p>
 
