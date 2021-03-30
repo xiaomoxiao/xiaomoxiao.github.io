@@ -192,7 +192,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      429 字
+      616 字
     </span>
   
 
@@ -202,7 +202,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -247,7 +247,11 @@
 <figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">rate</span> = rospy.Rate(<span class="hljs-number">10</span>) <span class="hljs-comment"># 10hz</span><br><br></code></pre></td></tr></tbody></table></figure>
 <p>设置程序循环的频率，we should expect to go through the loop 10 times per second官网的意思是在一秒内程序循环10次。然后在后面的sleep中使用</p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">while not rospy<span class="hljs-selector-class">.is_shutdown</span>():<br>	hello_str = <span class="hljs-string">"hello world %s"</span> % rospy.<span class="hljs-built_in">get_time</span>()<br>	rospy.<span class="hljs-built_in">loginfo</span>(hello_str)<br>	pub.<span class="hljs-built_in">publish</span>(hello_str)<br>	rate.<span class="hljs-built_in">sleep</span>()<br></code></pre></td></tr></tbody></table></figure>
-<p>while的条件是利用rospy程序的是否在执行作为循环条件，也就是一直再执行，除非你结束终端。</p>
+<p>while的条件是利用rospy程序的是否在执行作为循环条件，也就是一直再执行，除非你结束终端。<br>hello_str是用来创建消息数据，rospy.get_time()同时获取当前time<br>rospy.loginfo(str) 将消息打印到屏幕，并且写入节点node’s logfile,同时write到rosout，是一个debugger调试器<br>pub.publish(hello_str)是将消息发送出去<br>rate.sleep()就是利用刚才规定的频率设置消息发送的时间间隔。</p>
+<p><strong><em>注意1</em></strong> 一开始的时候我定义了两个相同的src内的文件夹test_pkg后来发现rosrun文件的时候，不起作用，这里还是建议不要用相同的文件名，以免程序执行出错。</p>
+<p><strong><em>注意2</em></strong><br>写python文件完成后，要在内部的CMakeLists.txt文件，修改catkin_install_python()部分的</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">catkin_install_python(PROGRAMS scripts<span class="hljs-regexp">/talker.py scripts/</span>listener.py<br>  DESTINATION <span class="hljs-variable">${CATKIN_PACKAGE_BIN_DESTINATION}</span><br>)<br></code></pre></td></tr></tbody></table></figure>
+<p>表明你要执行的python文件。</p>
 
             </div>
             <hr>
