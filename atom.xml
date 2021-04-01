@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-30T12:09:02.798Z</updated>
+  <updated>2021-04-01T12:39:39.422Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ros_service.md</title>
+    <link href="http://yoursite.com/2021/04/01/ros-service-md/"/>
+    <id>http://yoursite.com/2021/04/01/ros-service-md/</id>
+    <published>2021-04-01T12:39:39.000Z</published>
+    <updated>2021-04-01T12:39:39.422Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ros_服务编程</title>
+    <link href="http://yoursite.com/2021/04/01/ros%E5%88%9B%E5%BB%BAserver/"/>
+    <id>http://yoursite.com/2021/04/01/ros%E5%88%9B%E5%BB%BAserver/</id>
+    <published>2021-04-01T12:39:39.000Z</published>
+    <updated>2021-04-01T13:04:46.588Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天心情并不是很好。自己激励自己。<br>无论身处何地，只要努力，一定可以的。</p><h2 id="ros-server的创建"><a href="#ros-server的创建" class="headerlink" title="ros_server的创建"></a>ros_server的创建</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ros/ros.h"</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"learning_communication/AddTwoInts.h"</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">add</span><span class="hljs-params">(learning_communication::AddTwoInts::Request  &amp;req,</span></span><br><span class="hljs-function"><span class="hljs-params">                    learning_communication::AddTwoInts::Response &amp;res)</span></span><br><span class="hljs-function"></span>{<br>    res.sum = req.a + req.b;<br>    ROS_INFO(<span class="hljs-string">"request : x%ld, y=%ld"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span>)req.a,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )req.b );<br>    ROS_INFO(<span class="hljs-string">"sending back response : [%ld]"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )res.sum);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span></span><br><span class="hljs-function"></span>{<br>    ros::init(argc, argv, <span class="hljs-string">"add_two_init_server"</span>);<br>    <br>    ros::NodeHandle n;<br>    ros::ServiceServer service = n.advertiseService(<span class="hljs-string">"add_two_ints"</span>,add);<br><br>    ROS_INFO(<span class="hljs-string">"Ready to add two ints."</span>);<br>    ros::spin();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></tbody></table></figure><h2 id="ros-client"><a href="#ros-client" class="headerlink" title="ros_client"></a>ros_client</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ros/ros.h"</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"learning_communication/AddTwoInts.h"</span></span><br><br> <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>  **argv)</span></span><br><span class="hljs-function"></span>{<br>    <span class="hljs-comment">/* code for main function */</span><br>    ros::init(argc, argv, <span class="hljs-string">"add_two_ints_client"</span>);<br>    <span class="hljs-keyword">if</span> (argc !=<span class="hljs-number">3</span>)<br>    {<br>        ROS_INFO(<span class="hljs-string">"usage: add_two_ints_client X Y"</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">/* code for True */</span><br>    }<br>ros::NodeHandle n;<br>ros::ServiceClient  client=n.serviceClient&lt;learning_communication::AddTwoInts&gt;(<span class="hljs-string">"add_two_ints"</span>);<br><br>learning_communication::AddTwoInts srv;<br><br>srv.request.a = atoll(argv[<span class="hljs-number">1</span>]);<br>srv.request.b = atoll(argv[<span class="hljs-number">2</span>]);<br><br><span class="hljs-keyword">if</span> (client.call(srv))<br>{<br>    ROS_INFO(<span class="hljs-string">"Sum: %ld"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )srv.response.sum);<br>}<br><br><span class="hljs-keyword">else</span><br>{<br>    ROS_ERROR(<span class="hljs-string">"Failde to call service add_two_ints"</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>}<br><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><br></code></pre></td></tr></tbody></table></figure><p>在CmakeList.txt中加入</p><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">add<span class="hljs-constructor">_executable(<span class="hljs-params">server</span> <span class="hljs-params">src</span><span class="hljs-operator">/</span><span class="hljs-params">server</span>.<span class="hljs-params">cpp</span>)</span> <br><br>target<span class="hljs-constructor">_link_libraries(<span class="hljs-params">server</span> ${<span class="hljs-params">catkin_LIBRARIES</span>})</span> <br><br>add<span class="hljs-constructor">_dependencies(<span class="hljs-params">server</span> ${PROJECT_NAME}<span class="hljs-params">_gencpp</span>)</span><br><br>add<span class="hljs-constructor">_executable(<span class="hljs-params">client</span> <span class="hljs-params">src</span><span class="hljs-operator">/</span><span class="hljs-params">client</span>.<span class="hljs-params">cpp</span>)</span> <br><br>target<span class="hljs-constructor">_link_libraries(<span class="hljs-params">client</span> ${<span class="hljs-params">catkin_LIBRARIES</span>})</span> <br><br>add<span class="hljs-constructor">_dependencies(<span class="hljs-params">client</span> ${PROJECT_NAME}<span class="hljs-params">_gencpp</span>)</span><br><br><br></code></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="Ros" scheme="http://yoursite.com/categories/Ros/"/>
+    
+    
+    <category term="Ros" scheme="http://yoursite.com/tags/Ros/"/>
+    
+  </entry>
   
   <entry>
     <title>Ros PY文件执行不通过</title>

@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="xiao mo">
   <meta name="keywords" content="">
-  <title>Ros PY文件执行不通过 - 小墨墨</title>
+  <title>ros_服务编程 - 小墨墨</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ros PY文件执行不通过">
+            <span class="h2" id="subtitle" title="ros_服务编程">
               
             </span>
 
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-30 14:55" pubdate>
-        2021年3月30日 下午
+      <time datetime="2021-04-01 20:39" pubdate>
+        2021年4月1日 晚上
       </time>
     </span>
   
@@ -199,7 +199,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      397 字
+      238 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      4
        分钟
     </span>
   
@@ -239,38 +239,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ros PY文件执行不通过</h1>
+            <h1 style="display: none">ros_服务编程</h1>
             
             <div class="markdown-body">
-              <h2 id="python文件-rosrun执行不通过"><a href="#python文件-rosrun执行不通过" class="headerlink" title="python文件 rosrun执行不通过"></a>python文件 rosrun执行不通过</h2><p>在script 文件夹中，在ros终端中始终是卡死，然后提示代码有错误，检查了好多遍没有发现错误<br>原因是因为在python文件的头部加入</p>
-<figure class="highlight d"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/env python</span><br># -*- coding: utf-<span class="hljs-number">8</span> -*-<br><br></code></pre></td></tr></tbody></table></figure>
-<p>这段话是来表明你的问价是一个可以执行的python脚本程序，不然是无法执行的。</p>
-<p>然后再记录一下如何创建自己的msg包<br>首先在你的元功能包中与src同级目录下创建msg文件夹，然后在该文件夹下创建你要写的“文件名.msg”，里面写你的类似于struct的结构体文件。</p>
-<p>在在package.xml中添加功能包依赖 </p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build_depend</span>&gt;</span>message_generation<span class="hljs-tag">&lt;/<span class="hljs-name">build_depend</span>&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">exec_depend</span>&gt;</span>message_runtime<span class="hljs-tag">&lt;/<span class="hljs-name">exec_depend</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">build_export_depend</span>&gt;</span>message_generation<span class="hljs-tag">&lt;/<span class="hljs-name">build_export_depend</span>&gt;</span>  <br></code></pre></td></tr></tbody></table></figure>
-<p>然后在在CMakeLists.txt添加编译选项<br>在find_package(),下面是我的find_package()</p>
-<figure class="highlight isbl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">find_package</span>(<span class="hljs-variable">catkin</span> <span class="hljs-variable">REQUIRED</span> <span class="hljs-variable">COMPONENTS</span></span><br><span class="hljs-function">  <span class="hljs-variable">geometry_msgs</span></span><br><span class="hljs-function">  <span class="hljs-variable">roscpp</span></span><br><span class="hljs-function">  <span class="hljs-variable">rospy</span></span><br><span class="hljs-function">  <span class="hljs-variable">std_msgs</span></span><br><span class="hljs-function">  <span class="hljs-variable">turtlesim</span></span><br><span class="hljs-function">  <span class="hljs-variable">message_generation</span></span><br><span class="hljs-function">)</span><br></code></pre></td></tr></tbody></table></figure>
+              <p>今天心情并不是很好。自己激励自己。<br>无论身处何地，只要努力，一定可以的。</p>
+<h2 id="ros-server的创建"><a href="#ros-server的创建" class="headerlink" title="ros_server的创建"></a>ros_server的创建</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ros/ros.h"</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"learning_communication/AddTwoInts.h"</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">add</span><span class="hljs-params">(learning_communication::AddTwoInts::Request  &amp;req,</span></span><br><span class="hljs-function"><span class="hljs-params">                    learning_communication::AddTwoInts::Response &amp;res)</span></span><br><span class="hljs-function"></span>{<br>    res.sum = req.a + req.b;<br>    ROS_INFO(<span class="hljs-string">"request : x%ld, y=%ld"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span>)req.a,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )req.b );<br>    ROS_INFO(<span class="hljs-string">"sending back response : [%ld]"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )res.sum);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span></span><br><span class="hljs-function"></span>{<br>    ros::init(argc, argv, <span class="hljs-string">"add_two_init_server"</span>);<br>    <br>    ros::NodeHandle n;<br>    ros::ServiceServer service = n.advertiseService(<span class="hljs-string">"add_two_ints"</span>,add);<br><br>    ROS_INFO(<span class="hljs-string">"Ready to add two ints."</span>);<br>    ros::spin();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="ros-client"><a href="#ros-client" class="headerlink" title="ros_client"></a>ros_client</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ros/ros.h"</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"learning_communication/AddTwoInts.h"</span></span><br><br> <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>  **argv)</span></span><br><span class="hljs-function"></span>{<br>    <span class="hljs-comment">/* code for main function */</span><br>    ros::init(argc, argv, <span class="hljs-string">"add_two_ints_client"</span>);<br>    <span class="hljs-keyword">if</span> (argc !=<span class="hljs-number">3</span>)<br>    {<br>        ROS_INFO(<span class="hljs-string">"usage: add_two_ints_client X Y"</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">/* code for True */</span><br>    }<br>ros::NodeHandle n;<br>ros::ServiceClient  client=n.serviceClient&lt;learning_communication::AddTwoInts&gt;(<span class="hljs-string">"add_two_ints"</span>);<br><br>learning_communication::AddTwoInts srv;<br><br>srv.request.a = atoll(argv[<span class="hljs-number">1</span>]);<br>srv.request.b = atoll(argv[<span class="hljs-number">2</span>]);<br><br><span class="hljs-keyword">if</span> (client.call(srv))<br>{<br>    ROS_INFO(<span class="hljs-string">"Sum: %ld"</span>,(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> )srv.response.sum);<br>}<br><br><span class="hljs-keyword">else</span><br>{<br>    ROS_ERROR(<span class="hljs-string">"Failde to call service add_two_ints"</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>}<br><br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<p>在CmakeList.txt中加入</p>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">add<span class="hljs-constructor">_executable(<span class="hljs-params">server</span> <span class="hljs-params">src</span><span class="hljs-operator">/</span><span class="hljs-params">server</span>.<span class="hljs-params">cpp</span>)</span> <br><br>target<span class="hljs-constructor">_link_libraries(<span class="hljs-params">server</span> ${<span class="hljs-params">catkin_LIBRARIES</span>})</span> <br><br>add<span class="hljs-constructor">_dependencies(<span class="hljs-params">server</span> ${PROJECT_NAME}<span class="hljs-params">_gencpp</span>)</span><br><br>add<span class="hljs-constructor">_executable(<span class="hljs-params">client</span> <span class="hljs-params">src</span><span class="hljs-operator">/</span><span class="hljs-params">client</span>.<span class="hljs-params">cpp</span>)</span> <br><br>target<span class="hljs-constructor">_link_libraries(<span class="hljs-params">client</span> ${<span class="hljs-params">catkin_LIBRARIES</span>})</span> <br><br>add<span class="hljs-constructor">_dependencies(<span class="hljs-params">client</span> ${PROJECT_NAME}<span class="hljs-params">_gencpp</span>)</span><br><br><br></code></pre></td></tr></tbody></table></figure>
 
 
-<p>在add_message_files() 以及generate_messages()中添加如下内容</p>
-<figure class="highlight isbl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">add_message_files</span>(</span><br><span class="hljs-function">   <span class="hljs-variable">FILES</span></span><br><span class="hljs-function">   <span class="hljs-variable">Person.msg</span></span><br><span class="hljs-function"> )</span><br> <br><span class="hljs-function"><span class="hljs-title">generate_messages</span>(<span class="hljs-variable">DEPENDENCIES</span> <span class="hljs-variable">std_msgs</span>)</span><br><br></code></pre></td></tr></tbody></table></figure>
-<p>然后再在catkin中添加如下内容</p>
-<figure class="highlight autoit"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs autoit">catkin_package(<br><span class="hljs-meta">#  INCLUDE_DIRS <span class="hljs-meta-keyword">include</span></span><br><span class="hljs-meta">#  LIBRARIES test_pkg</span><br>   CATKIN_DEPENDS roscpp rospy std_msgs  geometry_msgs message_runtime turtlesim<br>  <span class="hljs-meta"># DEPENDS system_lib</span><br>)<br></code></pre></td></tr></tbody></table></figure>
-<p><strong><em>python 文件还要修改catkin_install_python中的scripts/文件名.py文件</em></strong></p>
-<p>生成新项目步骤</p>
-<ol>
-<li>创建文件夹<figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">mkdir -p ~<span class="hljs-regexp">/catkin_ws/</span>src <br></code></pre></td></tr></tbody></table></figure></li>
-<li>cd至src文件夹内 <figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">cd ~<span class="hljs-regexp">/catkin_ws/</span>src<br></code></pre></td></tr></tbody></table></figure></li>
-<li>将次文件声明为工作空间<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">catkin_init_workspace</span><br></code></pre></td></tr></tbody></table></figure></li>
-<li>返回你创建的初始文件件进行编译<figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade">cd ~<span class="hljs-regexp">/catkin_ws/</span><br>catkin_make<br></code></pre></td></tr></tbody></table></figure></li>
-<li>将工作环境添加到环境变量中<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">source devel/<span class="hljs-built_in">setup</span>.bash<br></code></pre></td></tr></tbody></table></figure></li>
-<li>创建功能包<figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade">cd ~<span class="hljs-regexp">/catkin_ws/</span>src<br>catkin_create_pkg test_pkg std_msgs rospy roscpp<br><br></code></pre></td></tr></tbody></table></figure></li>
-<li>再次编译环境<figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gradle">cd ~/catkin_ws <br>catkin_make <br><span class="hljs-keyword">source</span> ~<span class="hljs-regexp">/catkin_ws/</span>devel/setup.bash<br></code></pre></td></tr></tbody></table></figure></li>
-<li>生成install文件<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">catkin_make <span class="hljs-keyword">install</span><br></code></pre></td></tr></tbody></table></figure>
 
-
-</li>
-</ol>
 
             </div>
             <hr>
@@ -301,9 +281,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/01/ros%E5%88%9B%E5%BB%BAserver/">
+                      <a href="/2021/04/01/ros-service-md/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ros_服务编程</span>
+                        <span class="hidden-mobile">ros_service.md</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -311,8 +291,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
-                        <span class="hidden-mobile">Ros Publisher code 解读</span>
+                      <a href="/2021/03/30/ros%20py%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E5%8D%A1%E6%AD%BB%E4%B8%8D%E9%80%9A%E8%BF%87/">
+                        <span class="hidden-mobile">Ros PY文件执行不通过</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
