@@ -196,6 +196,55 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/04/24/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/">线性代数行列式的理解</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/">
+          
+          
+            
+          
+          观看3blue1brown的理解1.行列式
+1.行列式
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 14:55" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/linear-algebra/">linear algebra</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linear-algebra/">linear algebra</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/">PCA开始学习1</a>
       </h1>
 
@@ -205,10 +254,7 @@
           
             
           
-          PCA处理的步骤
-归一化归一化的操作比较简单，首先先求得所有数据的平均值
-
-
+          PCA处理的步骤1234567def PCA(data, correlation=False, sort=True):    # 作业1    # 屏蔽开始    data_mean = np.mean(data,axis=0)    normalize_data = data - data_mean    H=np.dot(normalize_data.T,normalize_data)    
         </a>
       </p>
 
@@ -347,17 +393,17 @@ ros_server的创建123456789101112131415161718192021222324#include "ros/ros.h"#i
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
+        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
+        <a href="/2021/03/26/ros%20listener/">
           
           
             
           
-          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
-1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
+          listener 代码自己的理解首先先贴出官方代码
+1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
         </a>
       </p>
 
@@ -396,17 +442,17 @@ ros_server的创建123456789101112131415161718192021222324#include "ros/ros.h"#i
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/26/ros%20listener/">Ros listener code</a>
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">Ros Publisher code 解读</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/26/ros%20listener/">
+        <a href="/2021/03/26/ros%20Publisher%20python%20code.md/">
           
           
             
           
-          listener 代码自己的理解首先先贴出官方代码
-1234567891011121314151617181920212223#!/usr/bin/env pythonimport rospyfrom std_msgs.msg import Stringdef callback(data):    rospy.loginfo(rospy.get_caller_id() + "I heard %s"
+          Start!今天书到了，开始自己新的一段学习本文的解释主要是基于 Rospy官方教程 欢迎并且鼓励大家去阅读英文原版文档首先贴上原版的python代码
+1234567891011121314151617181920#!/usr/bin/env python# license removed for brevityimport rospyfrom std_msgs.msg import String
         </a>
       </p>
 
@@ -611,51 +657,6 @@ ros_server的创建123456789101112131415161718192021222324#include "ros/ros.h"#i
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Python/">-Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/16/world%E6%8A%80%E5%B7%A7/">world技巧</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/16/world%E6%8A%80%E5%B7%A7/">
-          
-          
-            
-          
-          删除页眉
-选中页眉 Ctrl+Shift+N
-选中页眉，选择开始中的橡皮擦
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-16 21:34" pubdate>
-              2021-02-16
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/word/">word</a>
             
           </div>
         

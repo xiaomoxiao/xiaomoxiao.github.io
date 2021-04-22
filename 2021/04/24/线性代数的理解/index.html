@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="xiao mo">
   <meta name="keywords" content="">
-  <title>Ros Publisher code 解读 - 小墨墨</title>
+  <title>线性代数行列式的理解 - 小墨墨</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ros Publisher code 解读">
+            <span class="h2" id="subtitle" title="线性代数行列式的理解">
               
             </span>
 
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-26 14:55" pubdate>
-        2021年3月26日 下午
+      <time datetime="2021-04-24 14:55" pubdate>
+        2021年4月24日 下午
       </time>
     </span>
   
@@ -199,7 +199,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      616 字
+      13 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      1
        分钟
     </span>
   
@@ -239,27 +239,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ros Publisher code 解读</h1>
+            <h1 style="display: none">线性代数行列式的理解</h1>
             
             <div class="markdown-body">
-              <h2 id="Start"><a href="#Start" class="headerlink" title="Start!"></a>Start!</h2><h3 id="今天书到了，开始自己新的一段学习"><a href="#今天书到了，开始自己新的一段学习" class="headerlink" title="今天书到了，开始自己新的一段学习"></a>今天书到了，开始自己新的一段学习</h3><h3 id="本文的解释主要是基于-欢迎并且鼓励大家去阅读英文原版文档"><a href="#本文的解释主要是基于-欢迎并且鼓励大家去阅读英文原版文档" class="headerlink" title="本文的解释主要是基于  欢迎并且鼓励大家去阅读英文原版文档"></a>本文的解释主要是基于 <a href="http://wiki.ros.org/rospy_tutorials/Tutorials/WritingPublisherSubscriber" title="" target="">Rospy官方教程</a> 欢迎并且鼓励大家去阅读英文原版文档</h3><p>首先贴上原版的python代码</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python</span><br><span class="hljs-comment"># license removed for brevity</span><br><span class="hljs-keyword">import</span> rospy<br><span class="hljs-keyword">from</span> std_msgs.msg <span class="hljs-keyword">import</span> String<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">talker</span>():</span><br>    pub = rospy.Publisher(<span class="hljs-string">'chatter'</span>, String, queue_size=<span class="hljs-number">10</span>)<br>    rospy.init_node(<span class="hljs-string">'talker'</span>, anonymous=<span class="hljs-literal">True</span>)<br>    rate = rospy.Rate(<span class="hljs-number">10</span>) <span class="hljs-comment"># 10hz</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():<br>        hello_str = <span class="hljs-string">"hello world %s"</span> % rospy.get_time()<br>        rospy.loginfo(hello_str)<br>        pub.publish(hello_str)<br>        rate.sleep()<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    <span class="hljs-keyword">try</span>:<br>        talker()<br>    <span class="hljs-keyword">except</span> rospy.ROSInterruptException:<br>        <span class="hljs-keyword">pass</span><br></code></pre></td></tr></tbody></table></figure>
-<figure class="highlight d"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/env python</span><br></code></pre></td></tr></tbody></table></figure>
-<p>所有的python代码都要在文件的头部进行声明，确保你的文件是一个python的可执行脚本。</p>
-<figure class="highlight coffeescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> rospy<br><span class="hljs-keyword">from</span> std_msgs.msg <span class="hljs-keyword">import</span> <span class="hljs-built_in">String</span><br></code></pre></td></tr></tbody></table></figure>
-<p>导入rospy是因为正在用python写文件<br>而导入Sring的目的是我们可以使用std_msgs.msg的消息类型进行发布</p>
-<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">pub = rospy.Publisher(<span class="hljs-string">'chatter'</span>, String, <span class="hljs-attribute">queue_size</span>=10)<br>rospy.init_node(<span class="hljs-string">'talker'</span>, <span class="hljs-attribute">anonymous</span>=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></tbody></table></figure>
-<p>定义了发布器pub，是一个Publisher,chatter是其Name,String说明其消息类型，queue_size是保留消息的量，如果传输的太快，消息来不及处理就会将其存储，这个10也就是存储的量，如果超过个，就会将之前的消息挤出去。</p>
-<p>然后声明了一个节点，名字是talker,anonymous=True会在你的名字后面添加一串数字，来确保你节点的唯一性。</p>
-<figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">rate</span> = rospy.Rate(<span class="hljs-number">10</span>) <span class="hljs-comment"># 10hz</span><br><br></code></pre></td></tr></tbody></table></figure>
-<p>设置程序循环的频率，we should expect to go through the loop 10 times per second官网的意思是在一秒内程序循环10次。然后在后面的sleep中使用</p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">while not rospy<span class="hljs-selector-class">.is_shutdown</span>():<br>	hello_str = <span class="hljs-string">"hello world %s"</span> % rospy.<span class="hljs-built_in">get_time</span>()<br>	rospy.<span class="hljs-built_in">loginfo</span>(hello_str)<br>	pub.<span class="hljs-built_in">publish</span>(hello_str)<br>	rate.<span class="hljs-built_in">sleep</span>()<br></code></pre></td></tr></tbody></table></figure>
-<p>while的条件是利用rospy程序的是否在执行作为循环条件，也就是一直再执行，除非你结束终端。<br>hello_str是用来创建消息数据，rospy.get_time()同时获取当前time<br>rospy.loginfo(str) 将消息打印到屏幕，并且写入节点node’s logfile,同时write到rosout，是一个debugger调试器<br>pub.publish(hello_str)是将消息发送出去<br>rate.sleep()就是利用刚才规定的频率设置消息发送的时间间隔。</p>
-<p><strong><em>注意1</em></strong> 一开始的时候我定义了两个相同的src内的文件夹test_pkg后来发现rosrun文件的时候，不起作用，这里还是建议不要用相同的文件名，以免程序执行出错。</p>
-<p><strong><em>注意2</em></strong><br>写python文件完成后，要在内部的CMakeLists.txt文件，修改catkin_install_python()部分的</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">catkin_install_python(PROGRAMS scripts<span class="hljs-regexp">/talker.py scripts/</span>listener.py<br>  DESTINATION <span class="hljs-variable">${CATKIN_PACKAGE_BIN_DESTINATION}</span><br>)<br></code></pre></td></tr></tbody></table></figure>
-<p>表明你要执行的python文件。</p>
-
+              <h1 id="观看3blue1brown的理解"><a href="#观看3blue1brown的理解" class="headerlink" title="观看3blue1brown的理解"></a>观看3blue1brown的理解</h1><p>1.<a href="#1%E8%A1%8C%E5%88%97%E5%BC%8F">行列式</a></p>
+<h2 id="1-行列式"><a href="#1-行列式" class="headerlink" title="1.行列式"></a>1.行列式</h2>
             </div>
             <hr>
             <div>
@@ -268,7 +252,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Ros/">Ros</a>
+                      <a class="hover-with-bg" href="/categories/linear-algebra/">linear algebra</a>
                     
                   </div>
                 
@@ -276,7 +260,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Ros/">Ros</a>
+                      <a class="hover-with-bg" href="/tags/linear-algebra/">linear algebra</a>
                     
                   </div>
                 
@@ -289,18 +273,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/26/ros%20listener/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ros listener code</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/26/ros%E5%AD%A6%E4%B9%A0/">
-                        <span class="hidden-mobile">ROS init 解决办法</span>
+                      <a href="/2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/">
+                        <span class="hidden-mobile">PCA开始学习1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
