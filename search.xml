@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>PCA开始学习1</title>
+      <link href="2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/"/>
+      <url>2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="PCA处理的步骤"><a href="#PCA处理的步骤" class="headerlink" title="PCA处理的步骤"></a>PCA处理的步骤</h2><ol><li>归一化<br>归一化的操作比较简单，首先先求得所有数据的平均值</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 点云 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 点云 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ros_服务编程</title>
       <link href="2021/04/01/ros%E5%88%9B%E5%BB%BAserver/"/>
       <url>2021/04/01/ros%E5%88%9B%E5%BB%BAserver/</url>

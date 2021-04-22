@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-04-02T11:47:16.525Z</updated>
+  <updated>2021-04-11T09:36:33.764Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PCA开始学习1</title>
+    <link href="http://yoursite.com/2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/"/>
+    <id>http://yoursite.com/2021/04/11/PCA%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A01/</id>
+    <published>2021-04-11T09:19:57.000Z</published>
+    <updated>2021-04-11T09:36:33.764Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="PCA处理的步骤"><a href="#PCA处理的步骤" class="headerlink" title="PCA处理的步骤"></a>PCA处理的步骤</h2><ol><li>归一化<br>归一化的操作比较简单，首先先求得所有数据的平均值</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="点云" scheme="http://yoursite.com/categories/%E7%82%B9%E4%BA%91/"/>
+    
+    
+    <category term="点云" scheme="http://yoursite.com/tags/%E7%82%B9%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>ros_服务编程</title>
